@@ -4,7 +4,8 @@
 <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
         <div class="sidebar-brand">
-            <h2><span class="lab la-accusoft"></span><span>E-KINAMBA</span></h2>
+            <h2> <a href="{{ url('/home') }}">
+                <span><img src="{{ asset('img/car.jpg') }}" style="border-radius: 1em; color: white;" width="40px" height="40px" alt=""></span><span>E-KINAMBA</span></a></h2>
         </div>
         <div class="sidebar-menu">
             <ul>
@@ -133,7 +134,7 @@
                         <span>Washed Vehicles</span>
                     </div>
                     <div>
-                        <span class="las la-shopping-bag">
+                        <span class="las la-car">
 
                         </span>
                     </div>

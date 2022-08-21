@@ -5,7 +5,8 @@
 <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
         <div class="sidebar-brand">
-            <h2><span class="lab la-accusoft"></span><span>E-KINAMBA</span></h2>
+            <h2> <a href="{{ url('/home') }}">
+                <span><img src="{{ asset('img/car.jpg') }}" style="border-radius: 1em; color: white;" width="40px" height="40px" alt=""></span><span>E-KINAMBA</span></a></h2>
         </div>
         <div class="sidebar-menu">
             <ul>
@@ -109,7 +110,7 @@
         <div class="card" style="padding: 1em;">
         <div class="pull-right">
         @can('role-create')
-            <a class="btn btn-success" href="{{ route('roles.create') }}"> Create New Role</a>
+            <a class="btn btn-success" href="{{ route('roles.create') }}"><span class="las la-plus"></span> Create New Role</a>
             @endcan
         </div>
         </div>
@@ -138,7 +139,7 @@
         <td>
             <!-- <a class="btn btn-info" href="{{ route('roles.show',$role->id) }}">Show</a> -->
             @can('role-edit')
-                <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Edit</a>
+                <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}"><span class="las la-pen"></span> Edit</a>
             @endcan
             @can('role-delete')
                 {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}

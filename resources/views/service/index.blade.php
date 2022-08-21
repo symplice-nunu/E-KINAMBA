@@ -5,7 +5,8 @@
 <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
         <div class="sidebar-brand">
-            <h2><span class="lab la-accusoft"></span><span>E-KINAMBA</span></h2>
+            <h2> <a href="{{ url('/home') }}">
+                <span><img src="{{ asset('img/car.jpg') }}" style="border-radius: 1em; color: white;" width="40px" height="40px" alt=""></span><span>E-KINAMBA</span></a></h2>
         </div>
         <div class="sidebar-menu">
             <ul>
@@ -109,7 +110,7 @@
            
             <div class="pull-right">
                 @can('service-create')
-                <a class="btn btn-success" href="{{ route('service.create') }}">New Service</a>
+                <a class="btn btn-success" href="{{ route('service.create') }}"><span class="las la-plus"></span> New Service</a>
                 @endcan
             </div>
         </div>
@@ -133,7 +134,7 @@
             <th>Service Name</th>
             <th>Service Type</th>
             <th>Service Price</th>
-            <th width="180px">Action</th>
+            <th width="190px">Action</th>
         </tr>
 	    @foreach ($services as $service)
 	    <tr>
@@ -145,14 +146,14 @@
                 <form action="{{ route('service.destroy',$service->id) }}" method="POST">
                     <!-- <a class="btn btn-info" href="{{ route('service.show',$service->id) }}">Show</a> -->
                     @can('service-edit')
-                    <a class="btn btn-primary" href="{{ route('service.edit',$service->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('service.edit',$service->id) }}"><span class="las la-pen"></span> Edit</a>
                     @endcan
 
 
                     @csrf
                     @method('DELETE')
                     @can('service-delete')
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger"><span class="las la-trash"></span> Delete</button>
                     @endcan
                 </form>
 	        </td>

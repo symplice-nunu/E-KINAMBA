@@ -5,7 +5,8 @@
 <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
         <div class="sidebar-brand">
-            <h2><span class="lab la-accusoft"></span><span>E-KINAMBA</span></h2>
+            <h2> <a href="{{ url('/home') }}">
+                <span><img src="{{ asset('img/car.jpg') }}" style="border-radius: 1em; color: white;" width="40px" height="40px" alt=""></span><span>E-KINAMBA</span></a></h2>
         </div>
         <div class="sidebar-menu">
             <ul>
@@ -109,7 +110,7 @@
            
             <div class="pull-right">
                 @can('customer-create')
-                <a class="btn btn-success" href="{{ route('customers.create') }}">New Customer</a>
+                <a class="btn btn-success" href="{{ route('customers.create') }}"><span class="las la-plus"></span> New Customer</a>
                 @endcan
             </div>
         </div>
@@ -134,7 +135,7 @@
             <th>CustomerAddress</th>
             <th>Phone Number</th>
             <th>Plate Number</th>
-            <th width="180px">Action</th>
+            <th width="190px">Action</th>
         </tr>
 	    @foreach ($customers as $customer)
 	    <tr>
@@ -147,14 +148,14 @@
                 <form action="{{ route('customers.destroy',$customer->id) }}" method="POST">
                     <!-- <a class="btn btn-info" href="{{ route('customers.show',$customer->id) }}">Show</a> -->
                     @can('customer-edit')
-                    <a class="btn btn-primary" href="{{ route('customers.edit',$customer->id) }}">Edit</a>
+                    <a class="btn btn-primary" href="{{ route('customers.edit',$customer->id) }}"><span class="las la-pen"></span> Edit</a>
                     @endcan
 
 
                     @csrf
                     @method('DELETE')
                     @can('customer-delete')
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger"><span class="las la-trash"></span> Delete</button>
                     @endcan
                 </form>
 	        </td>
@@ -164,8 +165,12 @@
 </div>
 
 
-    {!! $customers->links() !!}
+
    </div>
+   </div>
+   <div>
+   <!-- {!! $customers->links() !!} -->
    </div>
 </div>
+
 @endsection

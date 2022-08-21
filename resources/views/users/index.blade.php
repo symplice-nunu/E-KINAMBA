@@ -6,7 +6,8 @@
 <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
         <div class="sidebar-brand">
-            <h2><span class="lab la-accusoft"></span><span>E-KINAMBA</span></h2>
+            <h2> <a href="{{ url('/home') }}">
+                <span><img src="{{ asset('img/car.jpg') }}" style="border-radius: 1em; color: white;" width="40px" height="40px" alt=""></span><span>E-KINAMBA</span></a></h2>
         </div>
         <div class="sidebar-menu">
             <ul>
@@ -109,7 +110,7 @@
         <br>
         <div class="card" style="padding: 1em;">
         <div class="pull-right">
-            <a class="btn btn-success" href="{{ route('users.create') }}"> Create New User</a>
+            <a class="btn btn-success" href="{{ route('users.create') }}"><span class="las la-plus"></span> Create New User</a>
         </div>
         </div>
     </div>
@@ -146,9 +147,9 @@
     </td>
     <td>
        <!-- <a class="btn btn-info" href="{{ route('users.show',$user->id) }}">Show</a> -->
-       <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
+       <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}"><span class="las la-pen"></span> Edit</a>
         {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
-            {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+            {!!  Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
         {!! Form::close() !!}
     </td>
   </tr>

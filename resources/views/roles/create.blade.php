@@ -5,7 +5,8 @@
 <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
         <div class="sidebar-brand">
-            <h2><span class="lab la-accusoft"></span><span>E-KINAMBA</span></h2>
+            <h2> <a href="{{ url('/home') }}">
+                <span><img src="{{ asset('img/car.jpg') }}" style="border-radius: 1em; color: white;" width="40px" height="40px" alt=""></span><span>E-KINAMBA</span></a></h2>
         </div>
         <div class="sidebar-menu">
             <ul>
@@ -164,8 +165,8 @@
 <div class="card" style="padding: 1em; margin-top: 1em;">
         
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <a class="btn btn-success" href="{{ route('roles.index') }}"> Back</a>
+            <button type="submit" class="btn btn-primary"><span class="las la-save"></span> Submit</button>
+            <a class="btn btn-success" href="{{ route('roles.index') }}"><span class="las la-arrow-left"></span> Back</a>
         </div>
         </div>
 {!! Form::close() !!}

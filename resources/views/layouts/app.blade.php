@@ -22,7 +22,7 @@
     <link href="{{ asset('css/sidebar.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+   <!-- <div id="app">-->
         <!--<nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container"> -->
                 <!-- <a class="navbar-brand" href="{{ url('/home') }}">
@@ -40,10 +40,10 @@
                     <!-- Right Side Of Navbar -->
                     <!--  <ul class="navbar-nav ml-auto">-->
                         <!-- Authentication Links -->
-                        @guest
+                        <!--@guest-->
                             <!-- <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
                             <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li> -->
-                        @else
+                        <!--@else-->
                          <!-- <a class="navbar-brand" href="{{ url('/home') }}">
                     E-KINAMBA
                 </a>
@@ -82,4 +82,4 @@
             </div>
         </main>
     </div>
-    @extends('layouts.sidebar')
+ 
