@@ -25,4 +25,8 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    public function carHome()
+    {
+        return view('homepage/carhome');
+    }
 }

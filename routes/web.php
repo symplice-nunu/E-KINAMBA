@@ -11,6 +11,9 @@ use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SendEmailController;
+
+Route::get('send-email', [SendEmailController::class, 'index']);
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +29,13 @@ use App\Http\Controllers\ServiceController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('carHome', function () {
+    return view('homepage/carhome');
+});
+// Route::get('MakeAppointment', function () {
+//     return view('appointment/makeappointment');
+// });
+// Route::get('/carHome', [App\Http\Controllers\HomeController::class, 'carHome'])->name('home');
 
 Auth::routes();
 
@@ -36,7 +46,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('customers', CustomerController::class);
     Route::resource('cleaner', CleanerController::class);
     Route::resource('vehicles', VehicleController::class);
-    Route::resource('appointment', AppointmentController::class);
+    Route::resource('appointments', AppointmentController::class);
     Route::resource('payment', PaymentController::class);
     Route::resource('service', ServiceController::class);
+    // Route::resource('MakeAppointment', AppointmentController::class);
 });
