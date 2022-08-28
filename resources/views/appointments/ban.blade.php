@@ -40,15 +40,15 @@
                         <span>Vehicles (waiting services)</span></a>
                 </li>
                 <li>
-                    <a href="{{ route('appointments.index') }}" class="active"><span class="las la-clipboard-list"></span>
+                    <a href="{{ route('appointments.index') }}"  class="active"><span class="las la-clipboard-list"></span>
                         <span>Appointments List</span></a>
                 </li>
                 <li>
-                    <a href="#"><span class="las la-clipboard-list"></span>
+                    <a href="{{ url('approvedAppointments') }}"><span class="las la-clipboard-list"></span>
                         <span>Approved Appointments</span></a>
                 </li>
                 <li>
-                    <a href="# "><span class="las la-clipboard-list"></span>
+                    <a href="{{ url('DenyAppointments') }}"><span class="las la-clipboard-list"></span>
                         <span>Canceled Appointments</span></a>
                 </li>
                 

@@ -15,12 +15,16 @@ class SendEmailController extends Controller
     public function index()
     {
  
-      Mail::to('intwarisymplice@gmail.com')->send(new NotifyMail());
- 
-      if (Mail::failures()) {
-           return response()->Fail('Sorry! Please try again latter');
-      }else{
-           return response()->success('Great! Successfully send in your mail');
-         }
+    //   Mail::to('hirwajackson090@gmail.com', 'E-KINAMBA')->send(new NotifyMail());
+
+      $data = array('name'=>"symplice");
+      Mail::send(new NotifyMail(), $data, function($message) {
+         $message->to('hirwajackson090@gmail.com', 'Hirwa jackson')->subject
+            ('kinamba');
+        //  $message->from('xyz@gmail.com','Virat Gandhi');
+      });
+      echo "HTML Email Sent. Check your inbox.";
+     
+     
     } 
 }

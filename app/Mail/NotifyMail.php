@@ -28,6 +28,6 @@ class NotifyMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.appointmentsMail');
+        return $this->subject('Your Appointment Confirmed')->view('emails.appointmentsMail');
     }
 }

@@ -40,15 +40,15 @@
                         <span>Vehicles (waiting services)</span></a>
                 </li>
                 <li>
-                    <a href="{{ route('appointments.index') }}" class="active"><span class="las la-clipboard-list"></span>
+                    <a href="{{ route('appointments.index') }}"><span class="las la-clipboard-list"></span>
                         <span>Appointments List</span></a>
                 </li>
                 <li>
-                    <a href="#"><span class="las la-clipboard-list"></span>
+                    <a href="{{ url('approvedAppointments') }}"><span class="las la-clipboard-list"></span>
                         <span>Approved Appointments</span></a>
                 </li>
                 <li>
-                    <a href="# "><span class="las la-clipboard-list"></span>
+                    <a href="{{ url('DenyAppointments') }}"  class="active"><span class="las la-clipboard-list"></span>
                         <span>Canceled Appointments</span></a>
                 </li>
                 
@@ -104,6 +104,17 @@
    <div class="pull-left">
                 <h2>E-Kinamba Customers Appointment List</h2>
     </div> <br>
+    <div class="card" style="padding: 0.5em; margin-bottom: 0.5em;">
+   <div class="row">
+        <div class="col-lg-12 margin-tb">
+           
+            <div class="pull-right">
+               
+                <a class="btn btn-primary" href="{{ url('generate-appointments-pdf') }}"><span class="las la-download"></span>Download</a>
+            </div>
+        </div>
+    </div>
+   </div>
 
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
@@ -127,7 +138,7 @@
         </tr>
 	    @foreach ($appointments as $customer)
 	    <tr>
-	        <td>{{ ++$i }}</td>
+	        <td>{{  $customer->id }}</td>
 	        <td>{{ $customer->names }}</td>
 	        <td>{{ $customer->phone }}</td>
 	        <td>{{ $customer->plateNumber }}</td>

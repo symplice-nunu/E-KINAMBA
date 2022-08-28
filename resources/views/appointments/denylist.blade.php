@@ -28,7 +28,7 @@
                 </li>
                 
                 <li>
-                    <a href="{{ route('service.index') }}" class="active"><span class="las la-clipboard-list"></span>
+                    <a href="{{ route('service.index') }}"><span class="las la-clipboard-list"></span>
                         <span>Services</span></a>
                 </li>
                 <li>
@@ -48,7 +48,7 @@
                         <span>Approved Appointments</span></a>
                 </li>
                 <li>
-                    <a href="{{ url('DenyAppointments') }}"><span class="las la-clipboard-list"></span>
+                    <a href="{{ url('DenyAppointments') }}"  class="active"><span class="las la-clipboard-list"></span>
                         <span>Canceled Appointments</span></a>
                 </li>
                 
@@ -74,7 +74,7 @@
                     <span class="las la-bars"> </span>
 
                 </label>
-               Services
+                Appointments
 
             </h2>
             <!-- <div class="search-wrapper">
@@ -102,30 +102,26 @@
    <div class="card" style="padding: 0.5em; margin-top: 2.5em;">
    <div class="container">
    <div class="pull-left">
-                <h2>E-Kinamba Service List</h2>
+                <h2>E-Kinamba Customers Canceled Appointments List</h2>
     </div> <br>
-   <div class="card" style="padding: 0.5em; margin-bottom: 0.5em;">
+    <div class="card" style="padding: 0.5em; margin-bottom: 0.5em;">
    <div class="row">
         <div class="col-lg-12 margin-tb">
            
             <div class="pull-right">
-                @can('service-create')
-                <a class="btn btn-success" href="{{ route('service.create') }}"><span class="las la-plus"></span> New Service</a>
-                @endcan
-                
-                <a class="btn btn-primary" href="{{ url('generate-Service-pdf') }}"><span class="las la-download"></span>Download</a>
+               
+                <a class="btn btn-primary" href="{{ url('generate-deny-appointments-pdf') }}"><span class="las la-download"></span>Download</a>
             </div>
         </div>
     </div>
    </div>
-
 
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
         </div>
     @endif
-
+    <!-- <a class="btn btn-success" href="{{ route('appointments.create') }}"><span class="las la-plus"></span> New Customer</a> -->
 <div class="card" style="padding: 0.5em;">
     
 <table class="table table-bordered">
@@ -133,40 +129,54 @@
         <tr>
             
             <th style="backgroung-color: red;">No</th>
-            <th>Service Name</th>
-            <th>Service Type</th>
-            <th>Service Price</th>
-            <th width="190px">Action</th>
+            <th>Names</th>
+            <th>Phone Number</th>
+            <th>Plate Number</th>
+            <th>Service</th>
+            <th>Email</th>
+            <th width="110px">Action</th>
         </tr>
-	    @foreach ($services as $service)
-	    <tr>
-	        <td>{{ ++$i }}</td>
-	        <td>{{ $service->ServiceName }}</td>
-	        <td>{{ $service->ServiceType }}</td>
-	        <td>{{ $service->ServicePrice }}</td>
+	    @foreach ($appointments as $customer)
+
+        <?php if($customer->status == 0){ ?>
+            <tr>
+	        <td>{{  $customer->id }}</td>
+	        <td>{{ $customer->names }}</td>
+	        <td>{{ $customer->phone }}</td>
+	        <td>{{ $customer->plateNumber }}</td>
+	        <!-- <td>{{ $customer->carModel }}</td> -->
+	        <td>{{ $customer->Service }}</td>
+	        <!-- <td>{{ $customer->AdditionalService }}</td> -->
+	        <!-- <td>{{ $customer->carwashdate }}</td> -->
+	        <td>{{ $customer->email }}</td>
 	        <td>
-                <form action="{{ route('service.destroy',$service->id) }}" method="POST">
-                    <!-- <a class="btn btn-info" href="{{ route('service.show',$service->id) }}">Show</a> -->
-                    @can('service-edit')
-                    <a class="btn btn-primary" href="{{ route('service.edit',$service->id) }}"><span class="las la-pen"></span> Edit</a>
-                    @endcan
+                <!-- <form action="{{ route('customers.destroy',$customer->id) }}" method="POST"> -->
+                    <!-- <a class="btn btn-info" href="{{ route('customers.show',$customer->id) }}">Show</a> -->
+                   
+                  <?php if($customer->status == 0){?>
+                    <a class="btn btn-primary" href="{{ route('appointments.edit',$customer->id) }}"><span class="las la-check"></span></a>
+                     <?php } ?>
+                    
+                    
+                    
 
-
-                    @csrf
-                    @method('DELETE')
-                    @can('service-delete')
-                    <button type="submit" class="btn btn-danger"><span class="las la-trash"></span> Delete</button>
-                    @endcan
-                </form>
+                    
+                <!-- </form> -->
 	        </td>
 	    </tr>
+        <?php } ?>
+	   
 	    @endforeach
     </table>
 </div>
 
 
-    {!! $services->links() !!}
+
    </div>
+   </div>
+   <div>
+   <!-- {!! $appointments->links() !!} -->
    </div>
 </div>
+
 @endsection

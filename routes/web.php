@@ -12,8 +12,9 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SendEmailController;
+use App\Http\Controllers\PDFController;
 
-Route::get('send-email', [SendEmailController::class, 'index']);
+
 
 /*
 |--------------------------------------------------------------------------
@@ -49,5 +50,21 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('appointments', AppointmentController::class);
     Route::resource('payment', PaymentController::class);
     Route::resource('service', ServiceController::class);
+    Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
+
+Route::get('generate-cleaner-pdf', [PDFController::class, 'generateCleanerPDF']);
+
+Route::get('generate-Service-pdf', [PDFController::class, 'generateServicePDF']);
+Route::get('generate-appointments-pdf', [PDFController::class, 'generateAppointmentPDF']);
+Route::get('generate-approved-appointments-pdf', [PDFController::class, 'approvelistPDF']);
+Route::get('generate-deny-appointments-pdf', [PDFController::class, 'denylistPDF']);
+
+
+Route::get('send-email', [SendEmailController::class, 'index']);
+
+Route::get('approvedAppointments', [AppointmentController::class, 'ApprovedApp']);
+Route::get('DenyAppointments', [AppointmentController::class, 'DenyApp']);
+
+
     // Route::resource('MakeAppointment', AppointmentController::class);
 });

@@ -40,15 +40,15 @@
                         <span>Vehicles (waiting services)</span></a>
                 </li>
                 <li>
-                    <a href="{{ route('appointment.index') }}"><span class="las la-clipboard-list"></span>
+                    <a href="{{ route('appointments.index') }}"><span class="las la-clipboard-list"></span>
                         <span>Appointments List</span></a>
                 </li>
                 <li>
-                    <a href="#"><span class="las la-clipboard-list"></span>
+                    <a href="{{ url('approvedAppointments') }}"><span class="las la-clipboard-list"></span>
                         <span>Approved Appointments</span></a>
                 </li>
                 <li>
-                    <a href="# "><span class="las la-clipboard-list"></span>
+                    <a href="{{ url('DenyAppointments') }}"><span class="las la-clipboard-list"></span>
                         <span>Canceled Appointments</span></a>
                 </li>
                 
@@ -112,9 +112,11 @@
                 @can('customer-create')
                 <a class="btn btn-success" href="{{ route('customers.create') }}"><span class="las la-plus"></span> New Customer</a>
                 @endcan
+                <a class="btn btn-primary" href="{{ url('generate-pdf') }}"><span class="las la-download"></span>Download</a>
             </div>
         </div>
     </div>
+    
    </div>
 
 

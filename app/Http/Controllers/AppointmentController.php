@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
     
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Mail;
+ 
+use App\Mail\NotifyMail;
     
 class AppointmentController extends Controller
 { 
@@ -20,6 +23,22 @@ class AppointmentController extends Controller
         $appointments = Appointment::latest()->paginate(5);
         // return view('appointment.index');
         return view('appointments.index',compact('appointments'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+
+    public function ApprovedApp()
+    {
+        $appointments = Appointment::latest()->paginate(5);
+        // return view('appointment.index');
+        return view('appointments.approvelist',compact('appointments'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+
+    public function DenyApp()
+    {
+        $appointments = Appointment::latest()->paginate(5);
+        // return view('appointment.index');
+        return view('appointments.denylist',compact('appointments'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
     public function create()
@@ -58,6 +77,7 @@ class AppointmentController extends Controller
     {
         
         $appointment->update($request->all());
+        Mail::to('hirwajackson090@gmail.com', 'E-KINAMBA')->send(new NotifyMail());
     
         return redirect()->route('appointments.index')
                         ->with('success','Your Choice Made Successfully.');
