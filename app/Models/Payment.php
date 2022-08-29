@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
   
-class Appointment extends Model
+class Payment extends Model
 {
     use HasFactory;
   
@@ -15,7 +15,8 @@ class Appointment extends Model
      * @var array
      */
     protected $fillable = [
-        'names','status','cleaner', 'phone', 'plateNumber', 'carModel','cost','Service', 'AdditionalService','carwashdate', 'email'
-     ];
-     protected $table='appointment';  
-    }
+        'names', 'amount', 'service', 'paymentDate'
+    ];
+
+    protected $table = 'payment';
+}

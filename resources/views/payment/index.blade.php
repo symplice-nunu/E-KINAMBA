@@ -19,7 +19,7 @@
                         <span>Manage Customers</span></a>
                 </li>
                 <li>
-                    <a href="{{ route('cleaner.index') }}" class="active"><span class="las la-clipboard-list"></span>
+                    <a href="{{ route('cleaner.index') }}"><span class="las la-clipboard-list"></span>
                         <span>Manage Cleaner</span></a>
                 </li>
                 <li>
@@ -28,8 +28,8 @@
                 </li>
                 
                 <li>
-                    <a href="{{ route('cleaner.index') }}"><span class="las la-clipboard-list"></span>
-                        <span>cleaners</span></a>
+                    <a href="{{ route('service.index') }}"><span class="las la-clipboard-list"></span>
+                        <span>Services</span></a>
                 </li>
                 <!-- <li>
                     <a href="#"><span class="las la-clipboard-list"></span>
@@ -37,7 +37,7 @@
                 </li>
                 <li>
                     <a href="#"><span class="las la-clipboard-list"></span>
-                        <span>Vehicles (waiting cleaners)</span></a>
+                        <span>Vehicles (waiting services)</span></a>
                 </li> -->
                 <li>
                     <a href="{{ route('appointments.index') }}"><span class="las la-clipboard-list"></span>
@@ -51,8 +51,9 @@
                     <a href="{{ url('DenyAppointments') }}"><span class="las la-clipboard-list"></span>
                         <span>Canceled Appointments</span></a>
                 </li>
+                
                 <li>
-                    <a href="{{ url('payment') }}"><span class="las la-clipboard-list"></span>
+                    <a href="{{ url('payment') }}"  class="active"><span class="las la-clipboard-list"></span>
                         <span>Payment list</span></a>
                 </li>
                 <li>
@@ -73,7 +74,7 @@
                     <span class="las la-bars"> </span>
 
                 </label>
-                Cleaner
+                Customer
 
             </h2>
             <!-- <div class="search-wrapper">
@@ -98,65 +99,62 @@
             </div>
             
         </header>
+   <div class="card" style="padding: 0.5em; margin-top: 2.5em;">
    <div class="container">
-   <div class="card" style="padding: 1em; width: 40em;  margin-top: 2.5em;">
+   <div class="pull-left">
+                <h2>E-Kinamba Customers Payment List</h2>
+    </div> <br>
+   <div class="card" style="padding: 0.5em; margin-bottom: 0.5em;">
    <div class="row">
-        <div>
-            <div class="pull-left">
-                <h2>Add New Cleaner</h2>
+        <div class="col-lg-12 margin-tb">
+           
+            <div class="pull-right">
+              
+                <a class="btn btn-primary" href="{{ url('generate-payment-pdf') }}"><span class="las la-download"></span>Download</a>
             </div>
-            
         </div>
     </div>
-	<br>
+    
+   </div>
 
 
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
         </div>
     @endif
 
+<div class="card" style="padding: 0.5em;">
+    
+<table class="table table-bordered">
+    
+        <tr>
+            
+            <th style="backgroung-color: red;">No</th>
+            <th>Customer Names</th>
+            <th>Service</th>
+            <th>Amount</th>
+            <th>Payment Date</th>
+        </tr>
+	    @foreach ($payments as $customer)
+	    <tr>
+	        <td>{{ ++$i }}</td>
+	        <td>{{ $customer->names }}</td>
+	        <td>{{ $customer->service }}</td>
+	        <td>{{ $customer->amount }}&nbsp;Frw</td>
+	        <td>{{ $customer->paymentDate }}</td>
+	        
+	    </tr>
+	    @endforeach
+    </table>
+</div>
 
-    <form action="{{ route('cleaner.store') }}" method="POST">
-    	@csrf
-	<div class="card" style="padding: 1em;">
-	<div class="row">
-		    <div class="col-xs-6 col-sm-12 col-md-12">
-		        <div class="form-group">
-		            <strong>Name</strong>
-		            <input type="text" name="Name" class="form-control CustomerLabel" placeholder="cleaner Name">
-		        </div>
-		    </div>
-		    <div class="col-xs-6 col-sm-6 col-md-12">
-		        <div class="form-group">
-		            <strong>Phone</strong>
-		             <input type="text" name="Phone" class="form-control CustomerLabel" placeholder="cleaner Phone">
-		         </div>
-		    </div>
-		    <div class="col-xs-6 col-sm-6 col-md-12">
-		        <div class="form-group">
-		            <strong>Address</strong>
-		             <input type="text" name="Address" class="form-control CustomerLabel" placeholder="cleaner Address">
-		         </div>
-		    </div>
-		   
-		   
-		</div>
-	</div>
-	<div class="card" style="padding: 1em; margin-top: 1em;">
-	<div class="col-xs-7 col-sm-7 col-md-7 text-center" style="">
-		            <button type="submit" class="btn btn-primary">Save</button>
-			
-                <a class="btn btn-success" href="{{ route('cleaner.index') }}"> Back</a>
-		    </div>
-	</div>
-    </form>
+
+
    </div>
    </div>
+   <div>
+   </div>
+</div>
+
 @endsection

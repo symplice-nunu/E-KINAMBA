@@ -31,16 +31,16 @@
                     <a href="{{ route('service.index') }}"><span class="las la-clipboard-list"></span>
                         <span>Services</span></a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="#"><span class="las la-clipboard-list"></span>
                         <span>Washed Vehicles List</span></a>
                 </li>
                 <li>
                     <a href="#"><span class="las la-clipboard-list"></span>
                         <span>Vehicles (waiting services)</span></a>
-                </li>
+                </li> -->
                 <li>
-                    <a href="{{ route('appointments.index') }}"><span class="las la-clipboard-list"></span>
+                    <a href="{{ route('appointments.index') }}" class="active"><span class="las la-clipboard-list"></span>
                         <span>Appointments List</span></a>
                 </li>
                 <li>
@@ -48,12 +48,11 @@
                         <span>Approved Appointments</span></a>
                 </li>
                 <li>
-                    <a href="{{ url('DenyAppointments') }}"  class="active"><span class="las la-clipboard-list"></span>
+                    <a href="{{ url('DenyAppointments') }}" ><span class="las la-clipboard-list"></span>
                         <span>Canceled Appointments</span></a>
                 </li>
-                
                 <li>
-                    <a href="{{ route('payment.index') }}"><span class="las la-clipboard-list"></span>
+                    <a href="{{ url('payment') }}"><span class="las la-clipboard-list"></span>
                         <span>Payment list</span></a>
                 </li>
                 <li>
@@ -127,12 +126,12 @@
 <table class="table table-bordered">
     
         <tr>
-            
             <th style="backgroung-color: red;">No</th>
             <th>Names</th>
             <th>Phone Number</th>
             <th>Plate Number</th>
             <th>Service</th>
+            <th>Cleaner</th>
             <th>Email</th>
             <th width="110px">Action</th>
         </tr>
@@ -145,7 +144,7 @@
 	        <!-- <td>{{ $customer->carModel }}</td> -->
 	        <td>{{ $customer->Service }}</td>
 	        <!-- <td>{{ $customer->AdditionalService }}</td> -->
-	        <!-- <td>{{ $customer->carwashdate }}</td> -->
+	        <td>{{ $customer->cleaner }}</td>
 	        <td>{{ $customer->email }}</td>
 	        <td>
                 <!-- <form action="{{ route('customers.destroy',$customer->id) }}" method="POST"> -->

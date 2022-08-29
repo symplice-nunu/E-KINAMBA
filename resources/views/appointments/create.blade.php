@@ -69,11 +69,11 @@ https://templatemo.com/tm-577-liberty-market
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="explore.html">About Us</a></li>
-                        <li><a href="details.html">Contact Us</a></li>
-                        <li><a href="author.html" class="active">Make Appointment</a></li>
-                        <li><a href="{{ route('login') }}">Login</a></li>
+                    <li><a href="{{ url('carHome') }}" class="active">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="{{ url('appointments/create') }}" class="active">Make Appointment</a></li>
+                        <li><a href="{{ url('login') }}">Login</a></li>
                     </ul>   
                     <!-- <a class='menu-trigger'>
                         <span>Menu</span>
@@ -190,7 +190,7 @@ https://templatemo.com/tm-577-liberty-market
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
   <span class="input-group-addon" style="width: 3em;"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="cost"  id="cost" class="form-control"  type="text">
+  <input name="cost"  id="cost" readonly class="form-control"  type="text">
     </div>
   </div>
 </div>
@@ -199,7 +199,7 @@ https://templatemo.com/tm-577-liberty-market
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
   <span class="input-group-addon" style="width: 3em;"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="carwashdate" placeholder="Enter Your Plate Number" class="form-control"  type="date">
+  <input name="carwashdate" placeholder="Enter Your Plate Number" class="form-control"  type="datetime-local">
     </div>
   </div>
 </div>

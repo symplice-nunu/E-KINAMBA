@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('cost');
             $table->string('carwashdate');
             $table->string('email');
+            $table->string('cleaner');
             $table->string('status');
             $table->timestamps();
         });

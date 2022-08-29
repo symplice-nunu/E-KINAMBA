@@ -9,7 +9,8 @@
         </div>
         
 		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
-		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
+		<!-- <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label> -->
 		<div class="login-form">
             <form method="POST" action="{{ route('login') }}">
                         @csrf
@@ -44,14 +45,14 @@
                 
                 </form>
 				<div class="hr"></div>
-				<div class="foot-lnk">
+				<!-- <div class="foot-lnk">
                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
-                                @endif
+                                @endif -->
 					<!-- <a href="#forgot">Forgot Password?</a> -->
-				</div>
+				<!-- </div> -->
 			</div>
 			<div class="sign-up-htm">
             <form method="POST" action="{{ route('register') }}">

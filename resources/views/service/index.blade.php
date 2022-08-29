@@ -31,14 +31,14 @@
                     <a href="{{ route('service.index') }}" class="active"><span class="las la-clipboard-list"></span>
                         <span>Services</span></a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="#"><span class="las la-clipboard-list"></span>
                         <span>Washed Vehicles List</span></a>
                 </li>
                 <li>
                     <a href="#"><span class="las la-clipboard-list"></span>
                         <span>Vehicles (waiting services)</span></a>
-                </li>
+                </li> -->
                 <li>
                     <a href="{{ route('appointments.index') }}"><span class="las la-clipboard-list"></span>
                         <span>Appointments List</span></a>
@@ -51,9 +51,8 @@
                     <a href="{{ url('DenyAppointments') }}"><span class="las la-clipboard-list"></span>
                         <span>Canceled Appointments</span></a>
                 </li>
-                
                 <li>
-                    <a href="{{ route('payment.index') }}"><span class="las la-clipboard-list"></span>
+                    <a href="{{ url('payment') }}"><span class="las la-clipboard-list"></span>
                         <span>Payment list</span></a>
                 </li>
                 <li>

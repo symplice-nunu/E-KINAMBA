@@ -134,8 +134,8 @@
 
           <tr>
             <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-              <p style="margin: 0;">Hello! <br> <br>
-We appreciate your appointment. We currently have the meeting place scheduled at NYANDUNGU. If you want to reach me to adjust our appointment or change any of these details, please call me at 0782754784.</p>
+              <p style="margin: 0;">Hello! <b>{{$names}}</b> <br> <br>
+We appreciate your appointment for service {{$Service}}. We currently have the meeting place scheduled at NYANDUNGU. If you want to reach me to adjust our appointment or change any of these details, please call me at 0782754784.</p>
             </td>
           </tr>
           <tr>
@@ -146,7 +146,7 @@ We appreciate your appointment. We currently have the meeting place scheduled at
                     <table border="0" cellpadding="0" cellspacing="0">
                       <tr>
                         <td align="center" bgcolor="#1a82e2" style="border-radius: 6px;">
-                          <a href="https://www.blogdesire.com" target="_blank" style="display: inline-block; padding: 16px 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px;">Click To Pay</a>
+                          <a href="http://127.0.0.1:8000/stripe" target="_blank" style="display: inline-block; padding: 16px 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px;">Click To Pay</a>
                         </td>
                       </tr>
                     </table>

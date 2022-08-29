@@ -9,6 +9,7 @@ use App\Models\Customer;
 use App\Models\Cleaner;
 use App\Models\Service;
 use App\Models\Appointment;
+use App\Models\Payment;
   
 class PDFController extends Controller
 {
@@ -64,6 +65,14 @@ class PDFController extends Controller
         $pdf = PDF::loadView('appointments/denylistPDF',compact('appointments'));
     
         return $pdf->download('Deny_Appointments.pdf');
+    }
+    public function paymentPDF()
+    {
+        $payments = Payment::latest()->paginate(5);
+          
+        $pdf = PDF::loadView('payment/indexPDF',compact('payments'));
+    
+        return $pdf->download('Customer Payments List.pdf');
     }
 
 

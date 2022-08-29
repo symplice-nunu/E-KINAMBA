@@ -31,14 +31,14 @@
                     <a href="{{ route('service.index') }}"><span class="las la-clipboard-list"></span>
                         <span>Services</span></a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="#"><span class="las la-clipboard-list"></span>
                         <span>Washed Vehicles List</span></a>
                 </li>
                 <li>
                     <a href="#"><span class="las la-clipboard-list"></span>
                         <span>Vehicles (waiting services)</span></a>
-                </li>
+                </li> -->
                 <li>
                     <a href="{{ route('appointments.index') }}"><span class="las la-clipboard-list"></span>
                         <span>Appointments List</span></a>
@@ -51,9 +51,8 @@
                     <a href="{{ url('DenyAppointments') }}" ><span class="las la-clipboard-list"></span>
                         <span>Canceled Appointments</span></a>
                 </li>
-                
                 <li>
-                    <a href="{{ route('payment.index') }}"><span class="las la-clipboard-list"></span>
+                    <a href="{{ url('payment') }}"><span class="las la-clipboard-list"></span>
                         <span>Payment list</span></a>
                 </li>
                 <li>
@@ -111,16 +110,27 @@
         </div>
     @endif
     <!-- <a class="btn btn-success" href="{{ route('appointments.create') }}"><span class="las la-plus"></span> New Customer</a> -->
-<div class="card" style="padding: 0.5em; padding-left: 19em;">
+<div class="card" style="padding: 0.5em; padding-left: 1em;">
 <div class="row">
         <div>
         <form action="{{ route('appointments.update',$appointment->id) }}" method="POST">
     	@csrf
         @method('PUT')
+        
+        <input type="hidden" name="confirmEmail" value="{{ $appointment->email }}">
+        
+         <br> <br>
            <input type="hidden"name="status" value="1">
+           <input type="hidden" name="app_id" value="{{ $appointment->id }}">
             <div>
                 
-                <button class="btn btn-success"><span class="las la-check"></span> Confirm Approval</button>
+           <select name="cleaner" class="form-control" id="">
+            <option value="">Select Cleaner</option>
+            @foreach ( $cleaners as $app)
+    <option value="{{ $app->Name}}">{{ $app->Name}}</option>
+            @endforeach
+
+           </select> <br>    <button class="btn btn-success"><span class="las la-check"></span> Confirm Approval</button>
             
             </div>
 </form>

@@ -13,6 +13,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SendEmailController;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\StripePaymentController;
 
 
 
@@ -26,7 +27,10 @@ use App\Http\Controllers\PDFController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::controller(StripePaymentController::class)->group(function(){
+    Route::get('stripe', 'stripe');
+    Route::post('stripe', 'stripePost')->name('stripe.post');
+});
 Route::get('/', function () {
     return view('welcome');
 });
@@ -45,14 +49,16 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('customers', CustomerController::class);
+    Route::resource('payment', StripePaymentController::class);
     Route::resource('cleaner', CleanerController::class);
     Route::resource('vehicles', VehicleController::class);
     Route::resource('appointments', AppointmentController::class);
-    Route::resource('payment', PaymentController::class);
+    // Route::resource('payment', PaymentController::class);
     Route::resource('service', ServiceController::class);
     Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
 
 Route::get('generate-cleaner-pdf', [PDFController::class, 'generateCleanerPDF']);
+Route::get('generate-payment-pdf', [PDFController::class, 'paymentPDF']);
 
 Route::get('generate-Service-pdf', [PDFController::class, 'generateServicePDF']);
 Route::get('generate-appointments-pdf', [PDFController::class, 'generateAppointmentPDF']);
