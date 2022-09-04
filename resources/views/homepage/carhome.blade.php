@@ -60,8 +60,8 @@ https://templatemo.com/tm-577-liberty-market
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
                         <li><a href="{{ url('carHome') }}" class="active">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <!-- <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li> -->
                         <li><a href="{{ url('appointments/create') }}">Make Appointment</a></li>
                         <li><a href="{{ url('login') }}">Login</a></li>
                     </ul>   
@@ -191,7 +191,7 @@ https://templatemo.com/tm-577-liberty-market
       </div>
     </div>
   </div>
-
+<!-- 
   <div class="create-nft">
     <div class="container">
       <div class="row">
@@ -243,7 +243,7 @@ https://templatemo.com/tm-577-liberty-market
     </div>
   </div>
 
-  
+   -->
 
   <footer>
     <div class="container">

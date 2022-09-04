@@ -69,9 +69,9 @@ https://templatemo.com/tm-577-liberty-market
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                    <li><a href="{{ url('carHome') }}" class="active">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                    <li><a href="{{ url('carHome') }}">Home</a></li>
+                        <!-- <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li> -->
                         <li><a href="{{ url('appointments/create') }}" class="active">Make Appointment</a></li>
                         <li><a href="{{ url('login') }}">Login</a></li>
                     </ul>   
