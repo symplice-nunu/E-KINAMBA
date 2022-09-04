@@ -2,6 +2,17 @@
 
 
 @section('content')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
 
 <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
@@ -23,23 +34,23 @@
                     <a href="{{ route('cleaner.index') }}"><span class="las la-clipboard-list"></span>
                         <span>Manage Cleaner</span></a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="{{ route('vehicles.index') }}"><span class="las la-shopping-bag"></span>
                         <span>Manage Vehicles</span></a>
-                </li>
+                </li> -->
                 
                 <li>
                     <a href="{{ route('service.index') }}"><span class="las la-clipboard-list"></span>
                         <span>Services</span></a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="#"><span class="las la-clipboard-list"></span>
                         <span>Washed Vehicles List</span></a>
                 </li>
                 <li>
                     <a href="#"><span class="las la-clipboard-list"></span>
                         <span>Vehicles (waiting services)</span></a>
-                </li>
+                </li> -->
                 <li>
                     <a href="{{ route('appointments.index') }}"><span class="las la-clipboard-list"></span>
                         <span>Appointments List</span></a>
@@ -111,6 +122,9 @@
         <div class="card" style="padding: 1em;">
         <div class="pull-right">
             <a class="btn btn-success" href="{{ route('users.create') }}"><span class="las la-plus"></span> Create New User</a>
+            <div style=" text-align: right;">
+                <input id="myInput" class="" type="text" placeholder="Search.." style="height: 2em; margin-top: -2.3em;">
+            </div> 
         </div>
         </div>
     </div>
@@ -126,14 +140,16 @@
 <div class="card" style="padding: 1em; margin-top: 1em;">
   
 <table class="table table-bordered">
+    <thead>
  <tr>
    <th>No</th>
    <th>Name</th>
    <th>Email</th>
    <th>Roles</th>
    <th width="180px">Action</th>
- </tr>
+ </tr></thead>
  @foreach ($data as $key => $user)
+        <tbody id="myTable">
   <tr>
     <td>{{ ++$i }}</td>
     <td>{{ $user->name }}</td>
@@ -153,6 +169,7 @@
         {!! Form::close() !!}
     </td>
   </tr>
+  </tbody>
  @endforeach
 </table>
 

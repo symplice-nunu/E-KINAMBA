@@ -2,6 +2,7 @@
 
 
 @section('content')
+
 <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
         <div class="sidebar-brand">

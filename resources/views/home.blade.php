@@ -21,23 +21,23 @@
                     <a href="{{ route('cleaner.index') }}"><span class="las la-clipboard-list"></span>
                         <span>Manage Cleaner</span></a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="{{ route('vehicles.index') }}"><span class="las la-shopping-bag"></span>
                         <span>Manage Vehicles</span></a>
-                </li>
+                </li> -->
                 
                 <li>
                     <a href="{{ route('service.index') }}"><span class="las la-clipboard-list"></span>
                         <span>Services</span></a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="#"><span class="las la-clipboard-list"></span>
                         <span>Washed Vehicles List</span></a>
                 </li>
                 <li>
                     <a href="#"><span class="las la-clipboard-list"></span>
                         <span>Vehicles (waiting services)</span></a>
-                </li>
+                </li> -->
                 <li>
                     <a href="{{ route('appointments.index') }}"><span class="las la-clipboard-list"></span>
                         <span>Appointments List</span></a>
@@ -103,7 +103,7 @@
                 <div class="card-single">
                     <div>
                         <h1>
-                            40
+                            {{ $user }}
                         </h1>
                         <span>Users</span>
                     </div>
@@ -116,7 +116,7 @@
                 <div class="card-single">
                     <div>
                         <h1>
-                            370
+                            {{$appointment}}
                         </h1>
                         <span>Appointments</span>
                     </div>
@@ -129,9 +129,9 @@
                 <div class="card-single">
                     <div>
                         <h1>
-                            124
+                            {{$payment}}
                         </h1>
-                        <span>Washed Vehicles</span>
+                        <span>Total Payments</span>
                     </div>
                     <div>
                         <span class="las la-car">
@@ -142,7 +142,7 @@
                 <div class="card-single">
                     <div>
                         <h1>
-                            90
+                            {{$customers}}
                         </h1>
                         <span>Customers</span>
                     </div>
@@ -171,7 +171,7 @@
 
 <script>
 var xValues = ["New Appointments", "Approved Appointments", "Canceled Appointments"];
-var yValues = [55, 49, 44];
+var yValues = [{{$deny}}, {{$washed}}, {{$deny}}];
 var barColors = [
   "#2b5797",
   "#00aba9",
