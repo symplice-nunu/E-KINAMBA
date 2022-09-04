@@ -19,6 +19,7 @@
 <link href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css" rel="stylesheet" />
     <style>
         #success_message{ display: none;}
+    
     </style>
 
     <!-- Bootstrap core CSS -->
@@ -118,8 +119,9 @@ https://templatemo.com/tm-577-liberty-market
     <div class="col-md-4 inputGroupContainer">
     <div class="input-group">
   <span class="input-group-addon" style="width: 3em;"><i class="glyphicon glyphicon-user"></i></span>
-  <input name="names" placeholder="Enter Your Names" class="form-control"  type="text">
+  <input name="names" id="names" placeholder="Enter Your Names" class="form-control"  type="text">
     </div>
+    <small class="text-danger">{{ $errors->first('names') }}</small>
   </div>
 </div>
 <div class="form-group">
@@ -129,6 +131,7 @@ https://templatemo.com/tm-577-liberty-market
   <span class="input-group-addon" style="width: 3em;"><i class="glyphicon glyphicon-user"></i></span>
   <input name="phone" placeholder="Enter Your Phone Number" class="form-control"  type="text">
     </div>
+    <small class="text-danger">{{ $errors->first('phone') }}</small>
   </div>
 </div>
 
@@ -138,7 +141,10 @@ https://templatemo.com/tm-577-liberty-market
     <div class="input-group">
   <span class="input-group-addon" style="width: 3em;"><i class="glyphicon glyphicon-user"></i></span>
   <input name="plateNumber" placeholder="Enter Your Plate Number" class="form-control"  type="text">
+  
+  
     </div>
+    <small class="text-danger">{{ $errors->first('plateNumber') }}</small>
   </div>
 </div>
 
@@ -155,6 +161,8 @@ https://templatemo.com/tm-577-liberty-market
       <option >Mercedes Benz ML</option>
     </select>
   </div>
+  
+  <small class="text-danger">{{ $errors->first('carModel') }}</small>
 </div>
 </div>
 
@@ -172,6 +180,8 @@ https://templatemo.com/tm-577-liberty-market
     <option value="Interior Cleaning">Interior Cleaning</option>
   </select>
 </div>
+
+<small class="text-danger">{{ $errors->first('Service') }}</small>
 </div>
 </div>
 <div class="form-group"> 
@@ -201,6 +211,7 @@ https://templatemo.com/tm-577-liberty-market
   <span class="input-group-addon" style="width: 3em;"><i class="glyphicon glyphicon-user"></i></span>
   <input name="carwashdate" placeholder="Enter Your Plate Number" class="form-control"  type="datetime-local">
     </div>
+    <small class="text-danger">{{ $errors->first('carwashdate') }}</small>
   </div>
 </div>
 
@@ -214,6 +225,7 @@ https://templatemo.com/tm-577-liberty-market
         <span class="input-group-addon" style="width: 3em;"><i class="glyphicon glyphicon-envelope"></i></span>
   <input name="email" placeholder="E-Mail Address" class="form-control"  type="text">
     </div>
+    <small class="text-danger">{{ $errors->first('email') }}</small>
   </div>
 </div>
 
@@ -260,7 +272,7 @@ https://templatemo.com/tm-577-liberty-market
     </div>
   </footer>
 <script>
-    
+
 function checkTest(){
   var model = $("#model").val();
   var service = $("#service").val();

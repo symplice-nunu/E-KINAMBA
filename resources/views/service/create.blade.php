@@ -22,10 +22,10 @@
                     <a href="{{ route('cleaner.index') }}"><span class="las la-clipboard-list"></span>
                         <span>Manage Cleaner</span></a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="{{ route('vehicles.index') }}"><span class="las la-shopping-bag"></span>
                         <span>Manage Vehicles</span></a>
-                </li>
+                </li> -->
                 
                 <li>
                     <a href="{{ route('service.index') }}" class="active"><span class="las la-clipboard-list"></span>
@@ -111,7 +111,7 @@
 	<br>
 
 
-    @if ($errors->any())
+    <!-- @if ($errors->any())
         <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
             <ul>
@@ -120,7 +120,7 @@
                 @endforeach
             </ul>
         </div>
-    @endif
+    @endif -->
 
 
     <form action="{{ route('service.store') }}" method="POST">
@@ -132,18 +132,21 @@
 		            <strong>Service Name</strong>
 		            <input type="text" name="ServiceName" class="form-control CustomerLabel" placeholder="Service Name">
 		        </div>
+                <small class="text-danger">{{ $errors->first('ServiceName') }}</small>
 		    </div>
 		    <div class="col-xs-6 col-sm-6 col-md-12">
 		        <div class="form-group">
 		            <strong>Service Type</strong>
 		             <input type="text" name="ServiceType" class="form-control CustomerLabel" placeholder="Service Type">
 		         </div>
+                <small class="text-danger">{{ $errors->first('ServiceType') }}</small>
 		    </div>
 		    <div class="col-xs-6 col-sm-6 col-md-12">
 		        <div class="form-group">
 		            <strong>Service Price</strong>
 		             <input type="text" name="ServicePrice" class="form-control CustomerLabel" placeholder="Service Price">
 		         </div>
+                <small class="text-danger">{{ $errors->first('ServicePrice') }}</small>
 		    </div>
 		   
 		   

@@ -22,10 +22,10 @@
                     <a href="{{ route('cleaner.index') }}"><span class="las la-clipboard-list"></span>
                         <span>Manage Cleaner</span></a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="{{ route('vehicles.index') }}"><span class="las la-shopping-bag"></span>
                         <span>Manage Vehicles</span></a>
-                </li>
+                </li> -->
                 
                 <li>
                     <a href="{{ route('service.index') }}"><span class="las la-clipboard-list"></span>

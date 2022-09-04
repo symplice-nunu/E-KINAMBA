@@ -22,15 +22,15 @@
                     <a href="{{ route('cleaner.index') }}" class="active"><span class="las la-clipboard-list"></span>
                         <span>Manage Cleaner</span></a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="{{ route('vehicles.index') }}"><span class="las la-shopping-bag"></span>
                         <span>Manage Vehicles</span></a>
-                </li>
+                </li> -->
                 
-                <li>
+                <!-- <li>
                     <a href="{{ route('cleaner.index') }}"><span class="las la-clipboard-list"></span>
                         <span>cleaners</span></a>
-                </li>
+                </li> -->
                 <!-- <li>
                     <a href="#"><span class="las la-clipboard-list"></span>
                         <span>Washed Vehicles List</span></a>
@@ -111,7 +111,7 @@
 	<br>
 
 
-    @if ($errors->any())
+    <!-- @if ($errors->any())
         <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
             <ul>
@@ -120,7 +120,7 @@
                 @endforeach
             </ul>
         </div>
-    @endif
+    @endif -->
 
 
     <form action="{{ route('cleaner.store') }}" method="POST">
@@ -132,18 +132,21 @@
 		            <strong>Name</strong>
 		            <input type="text" name="Name" class="form-control CustomerLabel" placeholder="cleaner Name">
 		        </div>
+                <small class="text-danger">{{ $errors->first('Name') }}</small>
 		    </div>
 		    <div class="col-xs-6 col-sm-6 col-md-12">
 		        <div class="form-group">
 		            <strong>Phone</strong>
 		             <input type="text" name="Phone" class="form-control CustomerLabel" placeholder="cleaner Phone">
 		         </div>
+                <small class="text-danger">{{ $errors->first('Phone') }}</small>
 		    </div>
 		    <div class="col-xs-6 col-sm-6 col-md-12">
 		        <div class="form-group">
 		            <strong>Address</strong>
 		             <input type="text" name="Address" class="form-control CustomerLabel" placeholder="cleaner Address">
 		         </div>
+                <small class="text-danger">{{ $errors->first('Address') }}</small>
 		    </div>
 		   
 		   

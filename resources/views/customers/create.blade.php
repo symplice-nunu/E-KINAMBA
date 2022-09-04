@@ -22,10 +22,10 @@
                     <a href="{{ route('cleaner.index') }}"><span class="las la-clipboard-list"></span>
                         <span>Manage Cleaner</span></a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="{{ route('vehicles.index') }}"><span class="las la-shopping-bag"></span>
                         <span>Manage Vehicles</span></a>
-                </li>
+                </li> -->
                 
                 <li>
                     <a href="{{ route('service.index') }}"><span class="las la-clipboard-list"></span>
@@ -110,7 +110,7 @@
     </div>
 	<br>
 
-
+<!-- 
     @if ($errors->any())
         <div class="alert alert-danger">
             <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -120,7 +120,7 @@
                 @endforeach
             </ul>
         </div>
-    @endif
+    @endif -->
 
 
     <form action="{{ route('customers.store') }}" method="POST">
@@ -132,24 +132,28 @@
 		            <strong>Customer Name</strong>
 		            <input type="text" name="CustomerName" class="form-control CustomerLabel" placeholder="Customer Name">
 		        </div>
+                <small class="text-danger">{{ $errors->first('CustomerName') }}</small>
 		    </div>
 		    <div class="col-xs-6 col-sm-6 col-md-12">
 		        <div class="form-group">
 		            <strong>Customer Address</strong>
 		             <input type="text" name="CustomerAddress" class="form-control CustomerLabel" placeholder="Customer Address">
 		         </div>
+                <small class="text-danger">{{ $errors->first('CustomerAddress') }}</small>
 		    </div>
 		    <div class="col-xs-6 col-sm-6 col-md-12">
 		        <div class="form-group">
 		            <strong>Phone Number</strong>
 		             <input type="text"  name="CustomerPhoneNumber" class="form-control CustomerLabel" placeholder="Customer Phone Number">
 		         </div>
+                <small class="text-danger">{{ $errors->first('CustomerPhoneNumber') }}</small>
 		    </div>
 		    <div class="col-xs-6 col-sm-6 col-md-12">
 		        <div class="form-group">
 		            <strong class="CustomerLabel">Plate Number</strong>
 		             <input type="text" name="PlateNumber" class="form-control" placeholder="Plate Number">
 		         </div>
+                <small class="text-danger">{{ $errors->first('PlateNumber') }}</small>
 		    </div>
 		   
 		</div>
