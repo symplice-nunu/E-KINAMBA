@@ -117,7 +117,11 @@
         <form action="{{ route('appointments.update',$appointment->id) }}" method="POST">
     	@csrf
         @method('PUT')
+
+        <input type="hidden" name="confirmEmail" value="{{ $appointment->email }}">
+        <input type="hidden" name="ConfirmBAN" value="BAN">
            <input type="hidden"name="status" value="0">
+           <input type="hidden" name="app_id" value="{{ $appointment->id }}">
             <div>
                 
                 <button class="btn btn-danger"><span class="las la-ban"></span>Deny Requested Appointment</button>

@@ -59,10 +59,30 @@ class AppointmentController extends Controller
             'carwashdate' => 'required', 
             'email' => 'required',
         ]);
+        $data = array(
+        $email_to = $request->request->get('email'),
+        $to_name = $request->request->get('names'),
+        'names' => $request->request->get('names'),
+        'Service' => $request->request->get('Service'),
+        );
+        
+
+        Mail::send('emails.ApproveappointmentsMail', $data, function($message) use ($to_name, $email_to) {
+            $message->to($email_to, $to_name)
+            ->subject('E-KINAMBA Appointment Approval');
+            $message->from('intwarisymplice@gmail.com','E-KINAMBA');
+            });
         Appointment::create($request->all());
+        $outside = $request->request->get('RED');
+        if ( $outside == "outside"){
+            return redirect()->route('appointments.create')
+                        ->with('success','Appointment for '.$to_name.' Made successfully.');
+        }else{
+            return redirect()->route('customers.index')
+                        ->with('success','Appointment '.$to_name.' Made successfully.');
+        }
     
-        return redirect()->route('appointments.create')
-                        ->with('success','Appointment Made successfully.');
+        
     }
 
     public function edit(Appointment $appointment)
@@ -90,12 +110,23 @@ class AppointmentController extends Controller
         
         $appointment->update($request->all());
         // Mail::to($request->get('confirmEmail'), 'E-KINAMBA')->send(new NotifyMail());
+        $ApproveCheck = $request->request->get('ConfirmBAN');
+        if ($ApproveCheck == "APPROVE"){
+            Mail::send('emails.appointmentsMail', $data, function($message) use ($to_name, $email_to) {
+                $message->to($email_to, $to_name)
+                ->subject('E-KINAMBA Appointments for '.$to_name.' is Approved ');
+                $message->from('intwarisymplice@gmail.com','E-KINAMBA');
+                });
+        }else{
+            Mail::send('emails.DenyappointmentsMail', $data, function($message) use ($to_name, $email_to) {
+                $message->to($email_to, $to_name)
+                ->subject('E-KINAMBA Appointments for '.$to_name.' is Not Approved ');
+                $message->from('intwarisymplice@gmail.com','E-KINAMBA');
+                });
 
-        Mail::send('emails.appointmentsMail', $data, function($message) use ($to_name, $email_to) {
-            $message->to($email_to, $to_name)
-            ->subject('E-KINAMBA');
-            $message->from('intwarisymplice@gmail.com','E-KINAMBA');
-            });
+        }
+
+        
     
         return redirect()->route('appointments.index')
                         ->with('success','Your Choice Made Successfully.');

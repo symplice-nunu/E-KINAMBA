@@ -155,6 +155,15 @@
 		         </div>
                 <small class="text-danger">{{ $errors->first('PlateNumber') }}</small>
 		    </div>
+            <br>
+            
+		    <div class="col-xs-6 col-sm-6 col-md-12">
+		        <div class="form-group">
+		            <strong class="CustomerLabel">Email</strong>
+		             <input type="email" name="email" class="form-control" placeholder="Email">
+		         </div>
+                <small class="text-danger">{{ $errors->first('email') }}</small>
+		    </div>
 		   
 		</div>
 	</div>

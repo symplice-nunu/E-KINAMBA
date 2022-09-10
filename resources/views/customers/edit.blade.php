@@ -152,6 +152,13 @@
 		            <input type="text" name="PlateNumber" value="{{ $customer->PlateNumber }}" class="form-control CustomerLabel" placeholder="Plate Number">
 		        </div>
 		    </div>
+            
+		    <div class="col-xs-12 col-sm-12 col-md-12">
+		        <div class="form-group">
+		            <strong>Email</strong>
+		            <input type="text" name="email" value="{{ $customer->email }}" class="form-control CustomerLabel" placeholder="email">
+		        </div>
+		    </div>
 			</div>
 
          

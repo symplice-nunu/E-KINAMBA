@@ -54,6 +54,7 @@ class CustomerController extends Controller
             'CustomerAddress' => 'required', 
             'CustomerPhoneNumber' => 'required', 
             'PlateNumber' => 'required',
+            'email' => 'required',
         ]);
     
         Customer::create($request->all());
@@ -79,6 +80,7 @@ class CustomerController extends Controller
             'CustomerAddress' => 'required', 
             'CustomerPhoneNumber' => 'required', 
             'PlateNumber' => 'required',
+            'email' => 'required',
         ]);
     
         $customer->update($request->all());

@@ -134,7 +134,7 @@ https://templatemo.com/tm-577-liberty-market
     <small class="text-danger">{{ $errors->first('phone') }}</small>
   </div>
 </div>
-
+<input type="hidden" name="RED" value="outside">
 <div class="form-group">
   <label class="col-md-4 control-label" >Plate Number</label> 
     <div class="col-md-4 inputGroupContainer">

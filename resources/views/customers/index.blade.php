@@ -146,11 +146,12 @@ $(document).ready(function(){
         <tr>
             
             <th style="backgroung-color: red;">No</th>
-            <th>Customer Name</th>
-            <th>CustomerAddress</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
             <th>Phone Number</th>
             <th>Plate Number</th>
-            <th width="190px">Action</th>
+            <th width="155px">Action</th>
         </tr>
         </thead>
 	    @foreach ($customers as $customer)
@@ -158,21 +159,22 @@ $(document).ready(function(){
 	    <tr>
 	        <td>{{ ++$i }}</td>
 	        <td>{{ $customer->CustomerName }}</td>
+	        <td>{{ $customer->email }}</td>
 	        <td>{{ $customer->CustomerAddress }}</td>
 	        <td>{{ $customer->CustomerPhoneNumber }}</td>
 	        <td>{{ $customer->PlateNumber }}</td>
 	        <td>
                 <form action="{{ route('customers.destroy',$customer->id) }}" method="POST">
-                    <!-- <a class="btn btn-info" href="{{ route('customers.show',$customer->id) }}">Show</a> -->
+                    <a class="btn btn-info" href="{{ route('customers.show',$customer->id) }}"><span class="las la-check"></span></a>
                     @can('customer-edit')
-                    <a class="btn btn-primary" href="{{ route('customers.edit',$customer->id) }}"><span class="las la-pen"></span> Edit</a>
+                    <a class="btn btn-primary" href="{{ route('customers.edit',$customer->id) }}"><span class="las la-pen"></span> </a>
                     @endcan
 
 
                     @csrf
                     @method('DELETE')
                     @can('customer-delete')
-                    <button type="submit" class="btn btn-danger"><span class="las la-trash"></span> Delete</button>
+                    <button type="submit" class="btn btn-danger"><span class="las la-trash"></span> </button>
                     @endcan
                 </form>
 	        </td>

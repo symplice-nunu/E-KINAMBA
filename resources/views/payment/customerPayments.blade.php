@@ -52,10 +52,19 @@
                         </div>
                         <div class='form-row row'>
                             <div class='col-xs-12 form-group'>
+                                <label class='control-label'>Email</label> <input
+                                    autocomplete='on' class='form-control' size='200' name="email"
+                                    type='email'>
+                            </div>
+                            <small class="text-danger">{{ $errors->first('email') }}</small>
+                        </div>
+                        <div class='form-row row'>
+                            <div class='col-xs-12 form-group'>
                                 <label class='control-label'>Amount</label> <input
                                     autocomplete='on' class='form-control' size='200' name="amount"
                                     type='number'>
                             </div>
+                            <small class="text-danger">{{ $errors->first('amount') }}</small>
                         </div>
                        
                         <div class='form-row row'>
@@ -68,6 +77,7 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <small class="text-danger">{{ $errors->first('service') }}</small>
                         </div>
     
                         <div class='form-row row'>

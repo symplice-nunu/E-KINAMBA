@@ -15,7 +15,7 @@ class Payment extends Model
      * @var array
      */
     protected $fillable = [
-        'names', 'amount', 'service', 'paymentDate'
+        'names', 'amount', 'service', 'paymentDate', 'email'
     ];
 
     protected $table = 'payment';

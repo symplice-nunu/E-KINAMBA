@@ -121,6 +121,7 @@
         
          <br> <br>
            <input type="hidden"name="status" value="1">
+           <input type="hidden" name="ConfirmBAN" value="APPROVE">
            <input type="hidden" name="app_id" value="{{ $appointment->id }}">
             <div>
                 
